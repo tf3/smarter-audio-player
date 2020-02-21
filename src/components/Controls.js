@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Controls = ({ currentSpeaker, currentSpeakerSpeed, audioPlayerRef, speakers }) => {
+const Controls = ({ currentSpeaker, currentSpeakerSpeed, audioPlayerRef, participants }) => {
   const setSpeed = newSpeed => {
     const DEFAULT_SPEED = 1;
     const { current } = audioPlayerRef;
@@ -10,7 +10,7 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, audioPlayerRef, speaker
     }
   };
 
-  const speakerIsCurrent = speaker => speaker === currentSpeaker;
+  const participantIsSpeaking = participant => participant === currentSpeaker;
 
   useEffect(() => {
     setSpeed(currentSpeakerSpeed);
@@ -20,7 +20,7 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, audioPlayerRef, speaker
     <div>
       <p>{currentSpeaker} ({currentSpeakerSpeed})</p>
       <ul>
-        {speakers.map(speaker => <li><span>{speakerIsCurrent(speaker) ? '🔊' : ''}</span>{speaker}</li>)}
+        {participants.map(participant => <li><span>{participantIsSpeaking(participant) ? '🔊' : ''}</span>{participant}</li>)}
       </ul>
     </div>
   );
