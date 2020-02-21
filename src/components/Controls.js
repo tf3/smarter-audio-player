@@ -19,8 +19,7 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, 
 
   return (
     <div>
-      <p>{currentSpeaker} ({currentSpeakerSpeed})</p>
-      <ul>
+      <ul id="participants">
         {participants.map(participantName => (
           <Participant
             isSpeaking={participantIsSpeaking(participantName)}

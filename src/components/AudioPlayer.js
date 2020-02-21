@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import SpeakerColorBar from './SpeakerColorBar';
 
 const AudioPlayer = ({ uri, setPlaytime, audioPlayerRef }) => {
   const handleTimeUpdate = () => {
@@ -20,6 +21,7 @@ const AudioPlayer = ({ uri, setPlaytime, audioPlayerRef }) => {
 
   return (
     <div>
+      <SpeakerColorBar />
       <audio
         id="audioPlayer"
         controls

@@ -1,10 +1,12 @@
 import React from 'react';
 import SpeedControl from './SpeedControl';
 
+const formatParticipantName = label => label.replace('spk_', 'speaker_');
+
 const Participant = ({ isSpeaking, name, speed, setSingleSpeakerSpeed }) => (
   <li className={isSpeaking ? 'speaking' : 'silent'}>
     <span className="speaker" role="img" aria-label="speaker">🔊</span>
-    {name}
+    <span className="speakerName">{formatParticipantName(name)}</span>
     <SpeedControl
       participantName={name}
       speed={speed}

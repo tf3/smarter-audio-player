@@ -29,9 +29,11 @@ const SpeedControl = ({ participantName, speed, setSingleSpeakerSpeed }) => {
   };
 
   return (
-    <div id="speedControl">
+    <div className="speedControl">
       <button type="button" onClick={handleMinusClick}>-</button>
-      <span onClick={handleSpeedClick}>{speed}</span>
+      <span className="speedNumber" onClick={handleSpeedClick}>
+        {speed}<span className="times">x</span>
+      </span>
       <button type="button" onClick={handlePlusClick}>+</button>
     </div>
   );

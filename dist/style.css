@@ -1,7 +1,49 @@
+body {
+  font-family: sans-serif;
+}
+
 .silent {
   opacity: 0.7;
 }
 
 .silent .speaker {
   display: none;
+}
+
+#audioPlayer {
+  width: 100%;
+}
+
+.speedControl {
+  background: #eee;
+  border-radius: 0.2em;
+  display: inline-block;
+  padding: 0.2em;
+  user-select: none;
+}
+
+.speedNumber {
+  background: #eee;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.85em;
+  text-align: center;
+  width: 2.1em;
+}
+
+.times {
+  font-size: 0.8em;
+}
+
+.speakerName {
+  background: red;
+  border-radius: 0.2em;
+  color: #fff;
+  margin-right: 0.5em;
+  padding: 0.2em;
+}
+
+#participants li {
+  list-style-type: none;
+  margin: 1em 0;
 }
