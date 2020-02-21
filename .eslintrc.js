@@ -29,6 +29,7 @@ module.exports = {
     "camelcase": "off",
     "arrow-parens": "off",
     "no-console": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/media-has-caption": "off"
   }
 };
