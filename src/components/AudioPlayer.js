@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
-const AudioPlayer = ({ uri, setPlayTime }) => {
+const AudioPlayer = ({ uri, setPlaytime }) => {
   const audioPlayerNode = useRef(null);
 
   const handleTimeUpdate = () => {
     const { current } = audioPlayerNode;
     if (!current) return false;
 
-    return setPlayTime(current.currentTime);
+    return setPlaytime(current.currentTime);
   };
 
   useEffect(() => {
