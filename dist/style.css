@@ -3,11 +3,15 @@ body {
 }
 
 .silent {
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
-.silent .speaker {
-  display: none;
+.voiceIndicator {
+  margin-right: 0.2em;
+}
+
+.silent .voiceIndicator {
+  visibility: hidden;
 }
 
 #audioPlayer {
@@ -41,6 +45,10 @@ body {
   color: #fff;
   margin-right: 0.5em;
   padding: 0.2em;
+}
+
+#participants {
+  padding-left: 0;
 }
 
 #participants li {
