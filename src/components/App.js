@@ -31,6 +31,7 @@ const App = () => {
         currentSpeakerSpeed={currentSpeakerSpeed}
         setSpeakerSpeeds={setSpeakerSpeeds}
         audioPlayerRef={audioPlayerRef}
+        speakers={speakers}
       />
     </div>
   );
