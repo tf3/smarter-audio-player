@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import getFormattedTranscript from '../utils/getFormattedTranscript';
 import AudioPlayer from './AudioPlayer';
 import Controls from './Controls';
@@ -8,13 +8,12 @@ const transcript = getFormattedTranscript();
 
 const App = () => {
   const [playtime, setPlaytime] = useState('');
-
-  console.log(playtime);
+  const audioPlayerRef = useRef(null);
 
   return (
     <div>
-      <AudioPlayer uri={uri} setPlaytime={setPlaytime} />
-      <Controls transcript={transcript} playtime={playtime} />
+      <AudioPlayer uri={uri} setPlaytime={setPlaytime} audioPlayerRef={audioPlayerRef} />
+      <Controls transcript={transcript} playtime={playtime} audioPlayerRef={audioPlayerRef} />
     </div>
   );
 };

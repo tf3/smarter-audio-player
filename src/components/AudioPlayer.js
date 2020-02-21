@@ -1,24 +1,22 @@
 import React, { useEffect, useRef } from 'react';
 
-const AudioPlayer = ({ uri, setPlaytime }) => {
-  const audioPlayerNode = useRef(null);
-
+const AudioPlayer = ({ uri, setPlaytime, audioPlayerRef }) => {
   const handleTimeUpdate = () => {
-    const { current } = audioPlayerNode;
+    const { current } = audioPlayerRef;
     if (!current) return false;
 
     return setPlaytime(current.currentTime);
   };
 
   useEffect(() => {
-    const { current } = audioPlayerNode;
+    const { current } = audioPlayerRef;
 
     if (current) {
       current.addEventListener('timeupdate', handleTimeUpdate);
     }
 
     return () => current.removeEventListener('timeupdate', handleTimeUpdate);
-  }, [audioPlayerNode]);
+  }, [audioPlayerRef]);
 
   return (
     <div>
@@ -26,7 +24,7 @@ const AudioPlayer = ({ uri, setPlaytime }) => {
         id="audioPlayer"
         controls
         src={uri}
-        ref={audioPlayerNode}
+        ref={audioPlayerRef}
       />
     </div>
   );
