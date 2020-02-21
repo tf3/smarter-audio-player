@@ -1,8 +1,22 @@
-import React from 'react';
-import getCurrentSpeaker from '../utils/getCurrentSpeaker';
+import React, { useEffect } from 'react';
 
-const Controls = ({ playtime, transcript }) => (
-  <p>{getCurrentSpeaker(transcript, playtime)}</p>
-);
+const Controls = ({ currentSpeaker, currentSpeakerSpeed, audioPlayerRef }) => {
+  const setSpeed = newSpeed => {
+    const DEFAULT_SPEED = 1;
+    const { current } = audioPlayerRef;
+
+    if (current) {
+      current.playbackRate = newSpeed || DEFAULT_SPEED;
+    }
+  };
+
+  useEffect(() => {
+    setSpeed(currentSpeakerSpeed);
+  }, [currentSpeakerSpeed]);
+
+  return (
+    <p>{currentSpeaker} ({currentSpeakerSpeed})</p>
+  );
+};
 
 export default Controls;
