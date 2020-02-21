@@ -1,0 +1,7 @@
+.silent {
+  opacity: 0.7;
+}
+
+.silent .speaker {
+  display: none;
+}
