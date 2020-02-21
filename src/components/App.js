@@ -13,11 +13,10 @@ const App = () => {
   const participants = getParticipantsFromTranscript(transcript);
   const [playtime, setPlaytime] = useState('');
   const [speakerSpeeds, setSpeakerSpeeds] = useState(getDefaultSpeakerSpeeds(participants));
+  const setSingleSpeakerSpeed = (speaker, speed) => setSpeakerSpeeds({ ...speakerSpeeds, [speaker]: speed });
   const audioPlayerRef = useRef(null);
   const currentSpeaker = getCurrentSpeaker(transcript, playtime);
   const currentSpeakerSpeed = speakerSpeeds[currentSpeaker];
-
-  console.log(speakerSpeeds);
 
   return (
     <div>
@@ -29,7 +28,8 @@ const App = () => {
       <Controls
         currentSpeaker={currentSpeaker}
         currentSpeakerSpeed={currentSpeakerSpeed}
-        setSpeakerSpeeds={setSpeakerSpeeds}
+        speakerSpeeds={speakerSpeeds}
+        setSingleSpeakerSpeed={setSingleSpeakerSpeed}
         audioPlayerRef={audioPlayerRef}
         participants={participants}
       />
