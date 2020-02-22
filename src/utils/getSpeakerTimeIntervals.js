@@ -1,6 +1,6 @@
 import transcription from '../../transcription-02.json';
 
-const reduceSegments = segmnets => segmnets.reduce((reducedSegments, currentSegment) => {
+const reduceSegments = segments => segments.reduce((reducedSegments, currentSegment) => {
   const { speaker_label, start_time, end_time } = currentSegment;
   const previousSegment = reducedSegments[reducedSegments.length - 1] || {};
 
@@ -14,9 +14,9 @@ const reduceSegments = segmnets => segmnets.reduce((reducedSegments, currentSegm
   return [...reducedSegments, { speaker_label, start_time, end_time }];
 }, []);
 
-const getFormattedTranscript = () => {
+const getSpeakerTimeIntervals = () => {
   const { segments } = transcription.results.speaker_labels;
   return reduceSegments(segments);
 };
 
-export default getFormattedTranscript;
+export default getSpeakerTimeIntervals;
