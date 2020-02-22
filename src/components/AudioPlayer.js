@@ -19,11 +19,14 @@ const AudioPlayer = ({ uri, setPlaytime, audioPlayerRef }) => {
     return () => current.removeEventListener('timeupdate', handleTimeUpdate);
   }, [audioPlayerRef]);
 
+  const duration = audioPlayerRef?.current?.duration;
+
   return (
     <div>
-      <SpeakerColorBar />
+      <SpeakerColorBar duration={duration} />
       <audio
         id="audioPlayer"
+        preload="auto"
         controls
         src={uri}
         ref={audioPlayerRef}
