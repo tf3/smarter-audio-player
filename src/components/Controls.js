@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Participant from './Participant';
 
-const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, audioPlayerRef, participants, speakerSpeeds }) => {
+const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, audioPlayerRef, participants, speakerSpeeds, normalizeSpeakerSpeeds, speedsAreNormalized }) => {
   const setSpeed = newSpeed => {
     const DEFAULT_SPEED = 1;
     const { current } = audioPlayerRef;
@@ -30,6 +30,9 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, 
           />
         ))}
       </ul>
+      <button type="button" onClick={normalizeSpeakerSpeeds} disabled={speedsAreNormalized}>
+        {speedsAreNormalized ? 'Speeds normalized' : 'Normalize speeds'}
+      </button>
     </div>
   );
 };
