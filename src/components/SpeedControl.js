@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SpeedControl = ({ participantName, speed, setSpeed }) => {
   const MAX_SPEED = 3;
@@ -37,6 +38,16 @@ const SpeedControl = ({ participantName, speed, setSpeed }) => {
       <button type="button" onClick={handlePlusClick}>+</button>
     </div>
   );
+};
+
+SpeedControl.propTypes = {
+  participantName: PropTypes.string,
+  speed: PropTypes.number.isRequired,
+  setSpeed: PropTypes.func.isRequired
+};
+
+SpeedControl.defaultProps = {
+  participantName: ''
 };
 
 export default SpeedControl;

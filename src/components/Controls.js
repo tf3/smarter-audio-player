@@ -51,7 +51,6 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, 
         <SpeedControl
           setSpeed={setGlobalSpeed}
           speed={globalSpeed}
-          participantName={null}
         />
       </form>
     </div>

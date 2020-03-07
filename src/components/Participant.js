@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SpeedControl from './SpeedControl';
 
 const formatParticipantName = label => label.replace('spk_', 'speaker_');
@@ -14,5 +15,11 @@ const Participant = ({ isSpeaking, name, speed, setSingleSpeakerSpeed }) => (
     />
   </li>
 );
+
+Participant.propTypes = {
+  isSpeaking: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  setSingleSpeakerSpeed: PropTypes.func.isRequired
+};
 
 export default Participant;
