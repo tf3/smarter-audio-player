@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SpeedControl = ({ participantName, speed, setSingleSpeakerSpeed }) => {
+const SpeedControl = ({ participantName, speed, setSpeed }) => {
   const MAX_SPEED = 3;
   const MIN_SPEED = 0.5;
   const SPEED_INCREMENT = 0.1;
@@ -9,22 +9,22 @@ const SpeedControl = ({ participantName, speed, setSingleSpeakerSpeed }) => {
 
   const handlePlusClick = () => {
     if (speed < MAX_SPEED) {
-      setSingleSpeakerSpeed(participantName, formatNumber(speed + SPEED_INCREMENT));
+      setSpeed(formatNumber(speed + SPEED_INCREMENT), participantName);
     }
   };
 
   const handleMinusClick = () => {
     if (speed > MIN_SPEED) {
-      setSingleSpeakerSpeed(participantName, formatNumber(speed - SPEED_INCREMENT));
+      setSpeed(formatNumber(speed - SPEED_INCREMENT), participantName);
     }
   };
 
   const handleSpeedClick = () => {
     if (speed === MAX_SPEED) {
-      setSingleSpeakerSpeed(participantName, MIN_SPEED);
+      setSpeed(MIN_SPEED, participantName);
     } else {
       const newSpeed = PRESET_SPEEDS.find(presetSpeed => presetSpeed > speed);
-      setSingleSpeakerSpeed(participantName, newSpeed);
+      setSpeed(newSpeed, participantName);
     }
   };
 

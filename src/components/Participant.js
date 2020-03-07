@@ -10,7 +10,7 @@ const Participant = ({ isSpeaking, name, speed, setSingleSpeakerSpeed }) => (
     <SpeedControl
       participantName={name}
       speed={speed}
-      setSingleSpeakerSpeed={setSingleSpeakerSpeed}
+      setSpeed={setSingleSpeakerSpeed}
     />
   </li>
 );

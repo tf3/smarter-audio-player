@@ -1,11 +1,12 @@
 import transcription from '../../transcription-02.json';
 import getSpeakerTimeIntervals from './getSpeakerTimeIntervals';
 
+// TODO: move back into function
+const speakerTimeIntervals = getSpeakerTimeIntervals();
+
 const getSpeakerAtInterval = ({ start_time, end_time }) => {
   const [startTimeNumber, endTimeNumber] = [Number(start_time), Number(end_time)];
-  const speakerTimeIntervals = getSpeakerTimeIntervals();
 
-  // TODO: rewrite to be more efficient
   const intervalWithinRange = speakerTimeIntervals.find(interval => (
     startTimeNumber >= Number(interval.start_time) && endTimeNumber <= Number(interval.end_time)
   ));

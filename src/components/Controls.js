@@ -1,7 +1,14 @@
 import React, { useEffect } from 'react';
 import Participant from './Participant';
+import SpeedControl from './SpeedControl';
 
-const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, audioPlayerRef, participants, speakerSpeeds, normalizeSpeakerSpeeds, speedsAreNormalized }) => {
+const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, audioPlayerRef, participants, speakerSpeeds, speedsAreNormalized, setSpeedsAreNormalized, normalizeSpeakerSpeeds, setGlobalSpeed, globalSpeed }) => {
+  const handleCheckboxChange = event => {
+    const speedsShouldBeNormalized = event.target.checked;
+    if (speedsShouldBeNormalized) normalizeSpeakerSpeeds();
+    setSpeedsAreNormalized(speedsShouldBeNormalized);
+  };
+
   const setSpeed = newSpeed => {
     const DEFAULT_SPEED = 1;
     const { current } = audioPlayerRef;
@@ -19,6 +26,7 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, 
 
   return (
     <div>
+      {true && (
       <ul id="participants">
         {participants.map(participantName => (
           <Participant
@@ -30,9 +38,22 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, 
           />
         ))}
       </ul>
-      <button type="button" onClick={normalizeSpeakerSpeeds} disabled={speedsAreNormalized}>
-        {speedsAreNormalized ? 'Speeds normalized' : 'Normalize speeds'}
-      </button>
+      )}
+      <form>
+        <label>
+          <input
+            type="checkbox"
+            checked={speedsAreNormalized}
+            onChange={handleCheckboxChange}
+          />
+          Normalize speaker speeds
+        </label>
+        <SpeedControl
+          setSpeed={setGlobalSpeed}
+          speed={globalSpeed}
+          participantName={null}
+        />
+      </form>
     </div>
   );
 };
