@@ -17,7 +17,6 @@ const App = () => {
   const audioPlayerRef = useRef(null);
   const currentSpeaker = getCurrentSpeaker(speakerTimeIntervals, playtime);
   const currentSpeakerSpeed = speakerSpeeds[currentSpeaker];
-  const [speedsAreNormalized, setSpeedsAreNormalized] = useState(false);
   const [globalMultiplier, setGlobalMultiplier] = useState(1);
 
   const normalizeSpeakerSpeeds = (speed = globalMultiplier) => {
@@ -25,7 +24,9 @@ const App = () => {
     setSpeakerSpeeds(normalizedSpeakerSpeeds);
   };
 
-  const setSingleSpeakerSpeed = (speed, speaker) => setSpeakerSpeeds({ ...speakerSpeeds, [speaker]: speed });
+  const setSingleSpeakerSpeed = (speed, speaker) => (
+    setSpeakerSpeeds({ ...speakerSpeeds, [speaker]: speed })
+  );
 
   const setGlobalSpeed = speed => {
     setGlobalMultiplier(speed);
@@ -46,8 +47,6 @@ const App = () => {
         setSingleSpeakerSpeed={setSingleSpeakerSpeed}
         audioPlayerRef={audioPlayerRef}
         participants={participants}
-        setSpeedsAreNormalized={setSpeedsAreNormalized}
-        speedsAreNormalized={speedsAreNormalized}
         normalizeSpeakerSpeeds={normalizeSpeakerSpeeds}
         globalSpeed={globalMultiplier}
         setGlobalSpeed={setGlobalSpeed}

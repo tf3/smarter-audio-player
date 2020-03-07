@@ -1,8 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Participant from './Participant';
 import SpeedControl from './SpeedControl';
 
-const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, audioPlayerRef, participants, speakerSpeeds, speedsAreNormalized, setSpeedsAreNormalized, normalizeSpeakerSpeeds, setGlobalSpeed, globalSpeed }) => {
+const Controls = ({
+  audioPlayerRef,
+  currentSpeaker,
+  currentSpeakerSpeed,
+  globalSpeed,
+  normalizeSpeakerSpeeds,
+  participants,
+  setGlobalSpeed,
+  setSingleSpeakerSpeed,
+  speakerSpeeds
+}) => {
+  const [speedsAreNormalized, setSpeedsAreNormalized] = useState(false);
+
   const handleCheckboxChange = event => {
     const speedsShouldBeNormalized = event.target.checked;
     if (speedsShouldBeNormalized) normalizeSpeakerSpeeds();
@@ -18,11 +31,11 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, 
     }
   };
 
-  const participantIsSpeaking = participant => participant === currentSpeaker;
-
   useEffect(() => {
     setSpeed(currentSpeakerSpeed);
   }, [currentSpeakerSpeed]);
+
+  const participantIsSpeaking = participant => participant === currentSpeaker;
 
   return (
     <div>
@@ -56,5 +69,25 @@ const Controls = ({ currentSpeaker, currentSpeakerSpeed, setSingleSpeakerSpeed, 
     </div>
   );
 };
+
+Controls.propTypes = {
+  audioPlayerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]).isRequired,
+  currentSpeaker: PropTypes.string.isRequired,
+  currentSpeakerSpeed: PropTypes.number,
+  globalSpeed: PropTypes.number.isRequired,
+  normalizeSpeakerSpeeds: PropTypes.func.isRequired,
+  participants: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setGlobalSpeed: PropTypes.func.isRequired,
+  setSingleSpeakerSpeed: PropTypes.func.isRequired,
+  speakerSpeeds: PropTypes.objectOf(PropTypes.number).isRequired
+};
+
+Controls.defaultProps = {
+  currentSpeakerSpeed: null
+};
+
 
 export default Controls;
