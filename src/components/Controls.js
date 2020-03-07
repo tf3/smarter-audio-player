@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import SpeedControl from './SpeedControl';
 import ParticipantControls from './ParticipantControls';
+import NormalizeSpeedControls from './NormalizeSpeedControls';
 
 const Controls = ({
   audioPlayerRef,
@@ -43,20 +43,12 @@ const Controls = ({
         setSingleSpeakerSpeed={setSingleSpeakerSpeed}
         speakerSpeeds={speakerSpeeds}
       />
-      <form>
-        <label>
-          <input
-            type="checkbox"
-            checked={speedsAreNormalized}
-            onChange={handleCheckboxChange}
-          />
-          Normalize speaker speeds
-        </label>
-        <SpeedControl
-          setSpeed={setGlobalSpeed}
-          speed={globalSpeed}
-        />
-      </form>
+      <NormalizeSpeedControls
+        globalSpeed={globalSpeed}
+        handleCheckboxChange={handleCheckboxChange}
+        setGlobalSpeed={setGlobalSpeed}
+        speedsAreNormalized={speedsAreNormalized}
+      />
     </div>
   );
 };
