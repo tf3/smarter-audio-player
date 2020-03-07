@@ -40,11 +40,26 @@ body {
 }
 
 .speakerName {
-  background: red;
   border-radius: 0.2em;
   color: #fff;
   margin-right: 0.5em;
   padding: 0.2em;
+}
+
+.spk_1 {
+  background: red;
+}
+
+.spk_0 {
+  background: blue;
+}
+
+.spk_2 {
+  background: orange;
+}
+
+.spk_3 {
+  background: green;
 }
 
 #participants {

@@ -7,7 +7,7 @@ const formatParticipantName = label => label.replace('spk_', 'speaker_');
 const Participant = ({ isSpeaking, name, setSingleSpeakerSpeed, speed }) => (
   <li className={isSpeaking ? 'speaking' : 'silent'}>
     <span className="voiceIndicator" role="img" aria-label="speaker">🔊</span>
-    <span className="speakerName">{formatParticipantName(name)}</span>
+    <span className={`speakerName ${name}`}>{formatParticipantName(name)}</span>
     <SpeedControl
       participantName={name}
       speed={speed}
