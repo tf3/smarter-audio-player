@@ -6,6 +6,7 @@ const ParticipantControls = ({
   currentSpeaker,
   participants,
   setSingleSpeakerSpeed,
+  setSpeedsAreNormalized,
   speakerSpeeds
 }) => {
   const participantIsSpeaking = participant => participant === currentSpeaker;
@@ -18,6 +19,7 @@ const ParticipantControls = ({
           name={participantName}
           speed={speakerSpeeds[participantName]}
           setSingleSpeakerSpeed={setSingleSpeakerSpeed}
+          setSpeedsAreNormalized={setSpeedsAreNormalized}
           key={participantName}
         />
       ))}
@@ -29,6 +31,7 @@ ParticipantControls.propTypes = {
   currentSpeaker: PropTypes.string.isRequired,
   participants: PropTypes.arrayOf(PropTypes.string).isRequired,
   setSingleSpeakerSpeed: PropTypes.func.isRequired,
+  setSpeedsAreNormalized: PropTypes.func.isRequired,
   speakerSpeeds: PropTypes.objectOf(PropTypes.number).isRequired
 };
 

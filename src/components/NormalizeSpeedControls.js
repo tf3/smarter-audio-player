@@ -11,6 +11,7 @@ const NormalizeSpeedControls = ({
   <form>
     <label htmlFor="normalizeSpeeds">
       <input
+        className="normalizeCheckbox"
         type="checkbox"
         checked={speedsAreNormalized}
         onChange={handleCheckboxChange}

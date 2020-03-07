@@ -41,6 +41,7 @@ const Controls = ({
         currentSpeaker={currentSpeaker}
         participants={participants}
         setSingleSpeakerSpeed={setSingleSpeakerSpeed}
+        setSpeedsAreNormalized={setSpeedsAreNormalized}
         speakerSpeeds={speakerSpeeds}
       />
       <NormalizeSpeedControls

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SpeedControl = ({ participantName, speed, setSpeed }) => {
+const SpeedControl = ({ onClickAnywhere, participantName, speed, setSpeed }) => {
   const MAX_SPEED = 3;
   const MIN_SPEED = 0.5;
   const SPEED_INCREMENT = 0.1;
@@ -30,7 +30,7 @@ const SpeedControl = ({ participantName, speed, setSpeed }) => {
   };
 
   return (
-    <div className="speedControl">
+    <div className="speedControl" onClick={onClickAnywhere}>
       <button type="button" onClick={handleMinusClick}>-</button>
       <span className="speedNumber" onClick={handleSpeedClick}>
         {speed}<span className="times">x</span>
@@ -41,12 +41,14 @@ const SpeedControl = ({ participantName, speed, setSpeed }) => {
 };
 
 SpeedControl.propTypes = {
+  onClickAnywhere: PropTypes.func,
   participantName: PropTypes.string,
   speed: PropTypes.number.isRequired,
   setSpeed: PropTypes.func.isRequired
 };
 
 SpeedControl.defaultProps = {
+  onClickAnywhere: () => {},
   participantName: ''
 };
 
