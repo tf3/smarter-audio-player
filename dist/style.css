@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  font-size: 18pt;
 }
 
 .silent {
@@ -22,7 +23,7 @@ body {
   background: #eee;
   border-radius: 0.2em;
   display: inline-block;
-  padding: 0.2em;
+  padding: 0.3em;
   user-select: none;
 }
 
@@ -69,4 +70,18 @@ body {
 #participants li {
   list-style-type: none;
   margin: 1em 0;
+}
+
+button {
+  font-size: 0.8em;
+  border: none;
+}
+
+.normalizeCheckbox {
+  transform: scale(2);
+  margin: 0 1.5em;
+}
+
+label {
+  margin: 1em;
 }
