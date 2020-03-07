@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Participant from './Participant';
 import SpeedControl from './SpeedControl';
+import ParticipantControls from './ParticipantControls';
 
 const Controls = ({
   audioPlayerRef,
@@ -35,23 +35,14 @@ const Controls = ({
     setSpeed(currentSpeakerSpeed);
   }, [currentSpeakerSpeed]);
 
-  const participantIsSpeaking = participant => participant === currentSpeaker;
-
   return (
     <div>
-      {true && (
-      <ul id="participants">
-        {participants.map(participantName => (
-          <Participant
-            isSpeaking={participantIsSpeaking(participantName)}
-            name={participantName}
-            speed={speakerSpeeds[participantName]}
-            setSingleSpeakerSpeed={setSingleSpeakerSpeed}
-            key={participantName}
-          />
-        ))}
-      </ul>
-      )}
+      <ParticipantControls
+        currentSpeaker={currentSpeaker}
+        participants={participants}
+        setSingleSpeakerSpeed={setSingleSpeakerSpeed}
+        speakerSpeeds={speakerSpeeds}
+      />
       <form>
         <label>
           <input
