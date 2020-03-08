@@ -21,7 +21,7 @@ const SpeedControl = ({ onClickAnywhere, participantName, speed, setSpeed }) => 
   };
 
   const handleSpeedClick = () => {
-    if (speed === MAX_SPEED) {
+    if (speed >= MAX_SPEED) {
       setSpeed(MIN_SPEED, participantName);
     } else {
       const newSpeed = PRESET_SPEEDS.find(presetSpeed => presetSpeed > speed);

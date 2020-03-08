@@ -19,10 +19,12 @@ const NormalizeSpeedControls = ({
       />
       Normalize speaker speeds
     </label>
-    <SpeedControl
-      setSpeed={setGlobalSpeed}
-      speed={globalSpeed}
-    />
+    {speedsAreNormalized && (
+      <SpeedControl
+        setSpeed={setGlobalSpeed}
+        speed={globalSpeed}
+      />
+    )}
   </form>
 );
 
