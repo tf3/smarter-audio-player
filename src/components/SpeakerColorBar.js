@@ -12,7 +12,21 @@ const getLineCoordinatesForInterval = (duration, { speaker_label, start_time, en
   return { x1, x2, speaker_label };
 };
 
-const getColorForSpeaker = speaker => speaker.includes('1') ? '#ff6666' : '#6766ff';
+const getColorForSpeaker = speaker => {
+  if (speaker.includes('0')) {
+    return '#6766ff';
+  }
+  if (speaker.includes('1')) {
+    return '#ff6666';
+  }
+  if (speaker.includes('2')) {
+    return '#ffa500';
+  }
+  if (speaker.includes('3')) {
+    return '#007f00';
+  }
+  return '#fff';
+};
 
 const SpeakerColorBar = ({ duration }) => {
   if (!duration) return null;
