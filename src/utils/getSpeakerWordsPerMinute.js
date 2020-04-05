@@ -7,7 +7,7 @@ const getSpeakerWordsPerMinute = () => {
   const totalSpeakingTime = getTotalSpeakingTimesFromTimeIntervals(timeIntervals); // seconds
   const wordCounts = getSpeakerWordsCounts();
 
-  return Object.keys(totalSpeakingTime).reduce((wordsPerMinute, speaker) => ({
+  return Object.keys(totalSpeakingTime).sort().reduce((wordsPerMinute, speaker) => ({
     ...wordsPerMinute,
     [speaker]: wordCounts[speaker] / (totalSpeakingTime[speaker] / 60)
   }), {});
