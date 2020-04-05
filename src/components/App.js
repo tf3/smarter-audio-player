@@ -7,7 +7,7 @@ import getParticipantsFromTimeIntervals from '../utils/getParticipantsFromTimeIn
 import getDefaultSpeakerSpeeds from '../utils/getDefaultSpeakerSpeeds';
 import getNormalizedSpeakerSpeeds from '../utils/getNormalizedSpeakerSpeeds';
 
-const uri = '../69--Jeffrey-Ding-on-Chinas-AI-dream-Feb-6.mp3';
+const uri = '../placeholder-podcast.mp3';
 const speakerTimeIntervals = getSpeakerTimeIntervals();
 
 const App = () => {

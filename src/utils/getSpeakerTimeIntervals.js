@@ -1,4 +1,4 @@
-import transcription from '../../transcription-02.json';
+import transcription from '../../placeholder-transcription.json';
 
 const reduceSegments = segments => segments.reduce((reducedSegments, currentSegment) => {
   const { speaker_label, start_time, end_time } = currentSegment;

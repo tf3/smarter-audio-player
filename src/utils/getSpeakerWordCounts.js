@@ -1,4 +1,4 @@
-import transcription from '../../transcription-02.json';
+import transcription from '../../placeholder-transcription.json';
 import getSpeakerTimeIntervals from './getSpeakerTimeIntervals';
 
 // TODO: move back into function
