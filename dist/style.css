@@ -85,3 +85,7 @@ button {
 label {
   margin: 1em;
 }
+
+#normalizeControls {
+  height: 4em;
+}

@@ -8,7 +8,7 @@ const NormalizeSpeedControls = ({
   setGlobalSpeed,
   speedsAreNormalized
 }) => (
-  <form>
+  <form id="normalizeControls">
     <label htmlFor="normalizeSpeeds">
       <input
         className="normalizeCheckbox"
