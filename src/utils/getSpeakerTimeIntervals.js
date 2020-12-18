@@ -1,4 +1,4 @@
-import transcription from '../../placeholder-transcription.json';
+import getCurrentTranscription from './transcription';
 
 const reduceSegments = segments => segments.reduce((reducedSegments, currentSegment) => {
   const { speaker_label, start_time, end_time } = currentSegment;
@@ -14,9 +14,18 @@ const reduceSegments = segments => segments.reduce((reducedSegments, currentSegm
   return [...reducedSegments, { speaker_label, start_time, end_time }];
 }, []);
 
+
+const transcriptionNamesToTimeIntervals = {};
+
 const getSpeakerTimeIntervals = () => {
-  const { segments } = transcription.results.speaker_labels;
-  return reduceSegments(segments);
+  const transcription = getCurrentTranscription();
+  const transcriptionName = transcription.jobName;
+
+  if (!transcriptionNamesToTimeIntervals[transcriptionName]) {
+    const { segments } = transcription.results.speaker_labels;
+    transcriptionNamesToTimeIntervals[transcriptionName] = reduceSegments(segments);
+  }
+  return transcriptionNamesToTimeIntervals[transcriptionName];
 };
 
 export default getSpeakerTimeIntervals;
