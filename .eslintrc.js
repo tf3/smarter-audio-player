@@ -2,34 +2,30 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb'
-  ],
+  extends: ["plugin:react/recommended", "airbnb"],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: "module",
   },
-  plugins: [
-    'react'
-  ],
+  plugins: ["react"],
   rules: {
     "react/jsx-filename-extension": "off",
     "object-curly-newline": "off",
     "comma-dangle": "off",
-    "camelcase": "off",
+    camelcase: "off",
     "arrow-parens": "off",
     "no-console": "off",
     "react/jsx-props-no-spreading": "off",
-    "jsx-a11y/media-has-caption": "off"
-  }
+    "jsx-a11y/media-has-caption": "off",
+    "max-len": "off",
+  },
 };
