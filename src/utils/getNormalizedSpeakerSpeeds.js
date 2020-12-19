@@ -2,7 +2,6 @@ import getSpeakerWordsPerMinute from './getSpeakerWordsPerMinute';
 
 const round = x => Number(x.toFixed(1));
 
-// declared outside to save the value between different calls to `getNormalizedSpeakerSpeeds`
 let speakersWPM = null;
 
 const getNormalizedSpeakerSpeeds = (multiplier = 1) => {
