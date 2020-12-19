@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import SpeakerColorBar from './SpeakerColorBar';
 
 const AudioPlayer = ({ uri, setPlaytime, audioPlayerRef }) => {
@@ -33,6 +34,15 @@ const AudioPlayer = ({ uri, setPlaytime, audioPlayerRef }) => {
       />
     </div>
   );
+};
+
+AudioPlayer.propTypes = {
+  uri: PropTypes.string.isRequired,
+  setPlaytime: PropTypes.func.isRequired,
+  audioPlayerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]).isRequired
 };
 
 export default AudioPlayer;

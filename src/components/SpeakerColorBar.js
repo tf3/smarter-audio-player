@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Line from './Line';
 import getSpeakerTimeIntervals from '../utils/getSpeakerTimeIntervals';
 
@@ -41,5 +42,14 @@ const SpeakerColorBar = ({ duration }) => {
     </svg>
   );
 };
+
+SpeakerColorBar.propTypes = {
+  duration: PropTypes.number
+};
+
+SpeakerColorBar.defaultProps = {
+  duration: null
+};
+
 
 export default SpeakerColorBar;

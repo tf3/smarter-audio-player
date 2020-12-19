@@ -33,7 +33,8 @@ const SpeedControl = ({ onClickAnywhere, participantName, speed, setSpeed }) => 
     <div className="speedControl" onClick={onClickAnywhere}>
       <button type="button" onClick={handleMinusClick}>-</button>
       <span className="speedNumber" onClick={handleSpeedClick}>
-        {speed}<span className="times">x</span>
+        {speed}
+        <span className="times">x</span>
       </span>
       <button type="button" onClick={handlePlusClick}>+</button>
     </div>
