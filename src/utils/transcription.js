@@ -1,4 +1,4 @@
-import exampleTranscription from '../../example-transcription.json';
+import exampleTranscription from '../../examples/transcription.json';
 
 const getCurrentTranscription = () => exampleTranscription;
 
