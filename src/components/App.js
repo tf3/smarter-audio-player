@@ -6,8 +6,8 @@ import Controls from './Controls';
 import getParticipantsFromTimeIntervals from '../utils/getParticipantsFromTimeIntervals';
 import getDefaultSpeakerSpeeds from '../utils/getDefaultSpeakerSpeeds';
 import getNormalizedSpeakerSpeeds from '../utils/getNormalizedSpeakerSpeeds';
+import { EXAMPLE_PODCAST_URL } from '../constants';
 
-const uri = '../placeholder-podcast.mp3';
 const speakerTimeIntervals = getSpeakerTimeIntervals();
 
 const App = () => {
@@ -36,7 +36,7 @@ const App = () => {
   return (
     <div>
       <AudioPlayer
-        uri={uri}
+        uri={EXAMPLE_PODCAST_URL}
         setPlaytime={setPlaytime}
         audioPlayerRef={audioPlayerRef}
       />
